@@ -2,7 +2,6 @@ syntax="proto3";
 
 package user;
 
-import "google/protobuf/empty.proto";
 
 service UserService{
     rpc CreateUser(UserRequest) returns (UserResponse){}
@@ -10,25 +9,29 @@ service UserService{
     rpc GetUserForClient(IdRequest) returns (UserResponse){}
     rpc GetAllUsers(AllUsersRequest) returns (Users) {}
     rpc SearchUsersByName(SearchUsers) returns (Users){}
-    rpc UpdateUser(UpdateUserRequest) returns (google.protobuf.Empty){}
+    rpc UpdateUser(UpdateUserRequest) returns (UserResponse){}
     rpc DeleteUser(IdRequest) returns (UserResponse){}
+    rpc CheckField(CheckFieldReq) returns (CheckFieldRes) {}
+
 }
 
 message UserRequest{
     string first_name = 1;
     string last_name = 2;
     string email = 3;
+    string password = 4;
 }
 
 message UpdateUserRequest {
     string first_name = 1;
     string last_name = 2;
     string email = 3;
-    int64 id = 4;
+    string password = 4;
+    int64 id = 5;
 }
 
 message SearchUsers {
-    string first_name = 1;
+    string search = 1;
 }
 
 message UserResponse{
@@ -73,3 +76,13 @@ message AllUsersRequest{
 message Users {
     repeated UserResponse users = 1;
 }
+
+message CheckFieldReq {
+    string field = 1;
+    string value = 2;
+}
+
+message CheckFieldRes {
+    bool exists = 1;
+}
+
