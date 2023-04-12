@@ -12,14 +12,19 @@ service UserService{
     rpc UpdateUser(UpdateUserRequest) returns (UserResponse){}
     rpc DeleteUser(IdRequest) returns (UserResponse){}
     rpc CheckField(CheckFieldReq) returns (CheckFieldRes) {}
-
+    rpc Login(LoginRequest) returns (LoginResponse) {}
+    rpc UpdateToken(RequestForTokens) returns (LoginResponse) {}
 }
+
+
 
 message UserRequest{
     string first_name = 1;
     string last_name = 2;
     string email = 3;
     string password = 4;
+    string acces_token = 5;
+    string refresh_token = 6;
 }
 
 message UpdateUserRequest {
@@ -40,8 +45,10 @@ message UserResponse{
     string last_name = 3;
     string email = 4;
     repeated Post posts = 5;
-    string created_at = 6;
-    string updated_at = 7;
+    string acces_token = 6;
+    string refresh_token = 7;
+    string created_at = 8;
+    string updated_at = 9;
 }
 
 message Post {
@@ -86,3 +93,23 @@ message CheckFieldRes {
     bool exists = 1;
 }
 
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string password = 5;
+    string acces_token = 6;
+    string refresh_token = 7;
+}
+
+message RequestForTokens {
+    string id = 1;
+    string acces_token = 2;
+    string refresh_token = 3;
+}
