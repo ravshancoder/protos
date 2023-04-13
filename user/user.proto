@@ -14,9 +14,12 @@ service UserService{
     rpc CheckField(CheckFieldReq) returns (CheckFieldRes) {}
     rpc Login(LoginRequest) returns (LoginResponse) {}
     rpc UpdateToken(RequestForTokens) returns (LoginResponse) {}
+    rpc GetByEmail(EmailReq) returns (LoginResponse);
 }
 
-
+message EmailReq {
+    string email = 1;
+}
 
 message UserRequest{
     string first_name = 1;
@@ -106,6 +109,8 @@ message LoginResponse {
     string password = 5;
     string acces_token = 6;
     string refresh_token = 7;
+    string created_at = 8;
+    string updated_at = 9;
 }
 
 message RequestForTokens {
