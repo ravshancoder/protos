@@ -26,7 +26,8 @@ message UserRequest{
     string last_name = 2;
     string email = 3;
     string password = 4;
-    string refresh_token = 5;
+    string acces_token = 5;
+    string refresh_token = 6;
 }
 
 message UpdateUserRequest {
@@ -47,9 +48,10 @@ message UserResponse{
     string last_name = 3;
     string email = 4;
     repeated Post posts = 5;
-    string refresh_token = 6;
-    string created_at = 7;
-    string updated_at = 8;
+    string acces_token = 6;
+    string refresh_token = 7;
+    string created_at = 8;
+    string updated_at = 9;
 }
 
 message Post {
@@ -105,12 +107,14 @@ message LoginResponse {
     string last_name = 3;
     string email = 4;
     string password = 5;
-    string refresh_token = 6;
-    string created_at = 7;
-    string updated_at = 8;
+    string acces_token = 6;
+    string refresh_token = 7;
+    string created_at = 8;
+    string updated_at = 9;
 }
 
 message RequestForTokens {
     string id = 1;
     string refresh_token = 2;
+    string acces_token = 3;
 }
