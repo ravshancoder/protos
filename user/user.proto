@@ -35,7 +35,7 @@ message UpdateUserRequest {
     string last_name = 2;
     string email = 3;
     string password = 4;
-    int64 id = 5;
+    string id = 5;
 }
 
 message SearchUsers {
@@ -43,7 +43,7 @@ message SearchUsers {
 }
 
 message UserResponse{
-    int64 id = 1;
+    string id = 1;
     string first_name = 2;
     string last_name = 3;
     string email = 4;
@@ -55,7 +55,7 @@ message UserResponse{
 }
 
 message Post {
-    int64 id = 1;
+    string id = 1;
     string title = 2;
     string description = 3;
     int64 likes = 4;
@@ -65,9 +65,9 @@ message Post {
 }
 
 message Comment {
-    int64 post_id = 1;
+    string post_id = 1;
     string post_title = 2;
-    int64 user_id = 3;
+    string user_id = 3;
     string user_name = 4;
     string post_user_name = 5;
     string text = 6;
@@ -75,7 +75,7 @@ message Comment {
 }
 
 message IdRequest{
-    int64 id = 1;
+    string id = 1;
 }
 
 message AllUsersRequest{

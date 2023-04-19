@@ -16,12 +16,12 @@ service PostService {
 }
 
 message PostResponse {
-    int64 id = 1;
+    string id = 1;
     string title = 2;
     string description = 3;
     int64 likes = 4;
     repeated Comment comments = 5;
-    int64 user_id = 6;
+    string user_id = 6;
     string user_name = 7;
     string user_email = 8;
     string created_at = 9;
@@ -29,9 +29,9 @@ message PostResponse {
 }
 
 message Comment {
-    int64 post_id = 1;
+    string post_id = 1;
     string post_title = 2;
-    int64 user_id = 3;
+    string user_id = 3;
     string user_name = 4;
     string post_user_name = 5;
     string text = 6;
@@ -41,17 +41,17 @@ message Comment {
 message PostRequest {
     string title = 1;
     string description = 2;
-    int64 user_id = 3;
+    string user_id = 3;
 }
 
 message UpdatePostRequest {
     string title = 1;
     string description = 2;
-    int64 id = 3;
+    string id = 3;
 }
 
 message IdRequest {
-    int64 id = 1;
+    string id = 1;
 }
 
 message Posts {
@@ -63,6 +63,6 @@ message Title {
 }
 
 message LikeRequest {
-    int64 post_id = 1;
+    string post_id = 1;
     bool is_liked = 2;
 }
