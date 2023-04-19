@@ -15,7 +15,11 @@ service UserService{
     rpc Login(LoginRequest) returns (LoginResponse) {}
     rpc UpdateToken(RequestForTokens) returns (LoginResponse) {}
     rpc GetByEmail(EmailReq) returns (LoginResponse);
+    rpc CreateAdmin(IdRequest) returns(empty);
 }
+
+
+message empty{}
 
 message EmailReq {
     string email = 1;
