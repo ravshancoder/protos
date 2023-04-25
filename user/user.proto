@@ -15,7 +15,6 @@ service UserService{
     rpc Login(LoginRequest) returns (UserResponse) {}
     rpc UpdateToken(RequestForTokens) returns (UserResponse) {}
     rpc GetByEmail(EmailReq) returns (UserResponse);
-    rpc CreateAdmin(IdRequest) returns(empty);
 }
 
 
@@ -40,7 +39,8 @@ message UpdateUserRequest {
     string last_name = 2;
     string email = 3;
     string password = 4;
-    string id = 5;
+    string user_type = 5;
+    string id = 6;
 }
 
 message SearchUsers {
@@ -53,11 +53,12 @@ message UserResponse{
     string last_name = 3;
     string email = 4;
     string user_type = 5;
-    repeated Post posts = 6;
-    string acces_token = 7;
-    string refresh_token = 8;
-    string created_at = 9;
-    string updated_at = 10;
+    string password = 6;
+    repeated Post posts = 7;
+    string acces_token = 8;
+    string refresh_token = 9;
+    string created_at = 10;
+    string updated_at = 11;
 }
 
 message Post {
