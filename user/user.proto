@@ -12,7 +12,6 @@ service UserService{
     rpc UpdateUser(UpdateUserRequest) returns (UserResponse){}
     rpc DeleteUser(IdRequest) returns (UserResponse){}
     rpc CheckField(CheckFieldReq) returns (CheckFieldRes) {}
-    rpc Login(LoginRequest) returns (UserResponse) {}
     rpc UpdateToken(RequestForTokens) returns (UserResponse) {}
     rpc GetByEmail(EmailReq) returns (UserResponse);
 }
@@ -101,11 +100,6 @@ message CheckFieldReq {
 
 message CheckFieldRes {
     bool exists = 1;
-}
-
-message LoginRequest {
-    string email = 1;
-    string password = 2;
 }
 
 message RequestForTokens {
