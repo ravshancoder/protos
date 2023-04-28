@@ -13,10 +13,19 @@ service UserService{
     rpc DeleteUser(IdRequest) returns (UserResponse){}
     rpc CheckField(CheckFieldReq) returns (CheckFieldRes) {}
     rpc UpdateToken(RequestForTokens) returns (UserResponse) {}
-    rpc GetByEmail(EmailReq) returns (UserResponse);
+    rpc GetByEmail(EmailReq) returns (UserResponse){}
+    rpc GetUserIdByToken(Token) returns(IdResp){}
 }
 
-message empty{}
+message IdResp{
+    string id = 1;
+}
+
+message Token{
+    string refresh_token = 1;
+}
+
+message Empty{}
 
 message EmailReq {
     string email = 1;
