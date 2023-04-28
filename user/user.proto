@@ -16,9 +16,6 @@ service UserService{
     rpc GetByEmail(EmailReq) returns (UserResponse);
 }
 
-
-message empty{}
-
 message EmailReq {
     string email = 1;
 }
